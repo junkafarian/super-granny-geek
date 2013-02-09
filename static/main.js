@@ -102,14 +102,15 @@ window.oncontextmenu = function() {
 };
 
 window.onclick = function(e) {
+
     var current_col,
         item,
         column;
 
     if(context == 1) {
-        index --;
-    } else {
         index ++;
+    } else {
+        index --;
     }
     if(index < 0) {
         index = 0;
@@ -119,6 +120,7 @@ window.onclick = function(e) {
         index = max_columns;
     }
     context = 0;
+
 
     current_col = columns[index];
     item = current_col.getSelectedItem();
