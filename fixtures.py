@@ -12,28 +12,31 @@ fixtures = {
             'title': 'Milk, Eggs & butter',
             'parent_category_slug': 'fresh-and-bakery',
         },
-        {
-            'slug': 'fresh-milk-1',
-            'title': 'Fresh Milk - 1 Pint',
-            'parent_category_slug': 'milk-eggs-and-butter',
-        },
-        {
-            'slug': 'fresh-milk-2',
-            'title': 'Fresh Milk - 2 Pints',
-            'parent_category_slug': 'milk-eggs-and-butter',
-        },
-        {
-            'slug': 'fresh-milk-4',
-            'title': 'Fresh Milk - 4 Pints',
-            'parent_category_slug': 'milk-eggs-and-butter',
-        },
-        {
-            'slug': 'fresh-milk-6',
-            'title': 'Fresh Milk - 6 Pint',
-            'parent_category_slug': 'milk-eggs-and-butter',
-        },
     ],
     Product: [
-
+        {
+            'name': 'Fresh Milk - 1 Pint',
+            'amount': 0.49,
+            'image_url': 'static/images/semi_skimmed_1pint.jpg',
+            'category_slug': 'milk-eggs-and-butter',
+        },
+        {
+            'name': 'Fresh Milk - 2 Pints',
+            'amount': 0.89,
+            'image_url': 'static/images/semi_skimmed_2pint.jpg',
+            'category_slug': 'milk-eggs-and-butter',
+        },
+        {
+            'name': 'Fresh Milk - 4 Pints',
+            'amount': 1.39,
+            'image_url': 'static/images/semi_skimmed_4pint.jpg',
+            'category_slug': 'milk-eggs-and-butter',
+        },
+        {
+            'name': 'Fresh Milk - 6 Pints',
+            'amount': 1.69,
+            'image_url': 'static/images/semi_skimmed_6pint.jpg',
+            'category_slug': 'milk-eggs-and-butter',
+        },
     ]
 }
