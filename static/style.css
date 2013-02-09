@@ -5,10 +5,12 @@ div.first {float: left; position: relative; background: #fff; border: black soli
 div.second {float: left; background: #fff; border: black solid 1px; width: 150px; height: 550px;}
 div.third {float: left; background: #fff; border: black solid 1px; width: 150px; height: 550px;}
 div.images {float: left; background: #fff; width: 300px; height: 550px; border: black solid 1px;}
-div.basket {float: left; background: #fff; width: 150px; height: 350px; border: silver solid 3px;}
+div.basket {float: left; background: #fff; width: 300px; height: 550px; border: silver solid 3px;}
 div.item {height: 40px; text-align: center; background: #fff; padding-top: 10px;}
+div.buy {height: 40px; background: green; width: 150px; text-align: center; margin-right: auto; margin-left: auto; padding-top: 10px; color: white;}
 div.top {height: 30px; width: 1280px;}
 div.which {float: left;width: 150px;}
 div.what {float: left;width: 456px;}
 div.yourselection {float: left;width:300px;}
-div.yourbasket {float: left;width:150px;}
+div.yourbasket {float: left; width:350px;}
+p {padding: 10px;}
