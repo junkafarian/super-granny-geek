@@ -25,12 +25,12 @@ fixtures = {
 	{
             'slug': 'fruit',
             'title': 'Fruit',
-            'parent_category_slug': fruit-and-veg,
+            'parent_category_slug': 'fruit-and-veg',
         },
 	{
             'slug': 'veg',
             'title': 'Veg',
-            'parent_category_slug': fruit-and-veg,
+            'parent_category_slug': 'fruit-and-veg',
         },
 	 {
             'slug': 'pets',
