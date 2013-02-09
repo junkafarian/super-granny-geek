@@ -1,6 +1,6 @@
 var thefocus = null;
-var column_map = {1: 'first', 2: 'second', 3: 'third'};
-var columns = {1: null, 2: null, 3: null};  // 3 columns
+var column_map = {0: 'first', 1: 'second', 2: 'third'};
+var columns = {0: null, 1: null, 2: null};  // 3 columns
 var max_columns = 2; // 0-indexed
 var delta = 0;
 var debug;
@@ -138,7 +138,7 @@ window.onclick = function(e) {
 
 debug = document.getElementById("debug");
 
-root = item_module().init('root', 1);
+root = item_module().init('root', 0);
 loadProducts('root');
 
 document.onmousewheel = scroll_handler;
