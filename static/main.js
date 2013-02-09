@@ -11,23 +11,17 @@ position = 0,
 items = null;
 
 return {
-    init : function(name) {
+    init : function(name, column) {
         node = document.getElementById(name);
-        jQuery.getJSON('static/'+name+'.json', function(data) {
+        jQuery.getJSON('/'+name+'/children/', function(data) {
             items = data;
-              for(var i=0; i<data.length; i++) {
+            for(var i=0; i<data.length; i++) {
                 var item = document.createElement("div");
                 item.className = "item";
                 item.innerHTML = data[i].title;
-                // item.onmouseover = function() {
-                //  this.style.background = "#eee";
-                // };
-                // item.onmouseout = function() {
-                //  this.style.background = "#ddd";
-                // };
                 items[i].node = item;
                 node.appendChild(item);
-              }
+            }
         });
         node.onclick = function(e) {
             var rightclick;
@@ -35,7 +29,7 @@ return {
             if (e.which) rightclick = (e.which == 3);
             else if (e.button) rightclick = (e.button == 2);
             alert('Rightclick: ' + rightclick); // true or false
-            }
+        };
 
     },
     setPosition : function(dx) {
@@ -80,20 +74,13 @@ jQuery(document).ready(function () {
 window.oncontextmenu = function() {
     //alert("cointex");
     return false;
-}
+};
 
 debug = document.getElementById("debug");
 
-lists.push(item_module());
-lists.push(item_module());
-lists.push(item_module());
+root = item_module().init('root');
+lists.push(root);
 
-lists[0].init("first");
-lists[1].init("second");
-lists[2].init("third");
-
-
-//document.addEventListener('DOMMouseScroll', scroll_handler, false);
 
 document.onmousewheel = scroll_handler;
 
