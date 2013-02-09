@@ -1,0 +1,9 @@
+body {width: 1280px; margin-left: auto; margin-right: auto; height: 550px; background: #eee;}
+div.shop {width: 100px; margin-left: auto; border: silver solid 1px; padding: 10px; margin-right: auto; height: 50px; margin-top: 10px; margin-bottom: 10px;}
+div.shops {float: left; background: #fff; width: 150px; height: 500px; padding-top: 50px;}
+div.first {float: left; position: relative; background: #fff; border: black solid 1px; width: 150px; height: 550px;}
+div.second {float: left; background: #fff; border: black solid 1px; width: 150px; height: 550px;}
+div.third {float: left; background: #fff; border: black solid 1px; width: 150px; height: 550px;}
+div.images {float: left; background: #fff; width: 300px; height: 550px;}
+div.basket {float: left; background: #fff; width: 150px; height: 550px;}
+div.item {height: 50px; text-align: center; background: #ddd;}
