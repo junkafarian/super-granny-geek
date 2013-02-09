@@ -18,14 +18,29 @@ fixtures = {
             'parent_category_slug': 'fresh-and-bakery',
         },
 	 {
+            'slug': 'fruit-and-veg',
+            'title': 'Fruit & Veg',
+            'parent_category_slug': None,
+        },
+	{
+            'slug': 'fruit',
+            'title': 'Fruit',
+            'parent_category_slug': fruit-and-veg,
+        },
+	{
+            'slug': 'veg',
+            'title': 'Veg',
+            'parent_category_slug': fruit-and-veg,
+        },
+	 {
             'slug': 'pets',
             'title': 'Pets',
-            'parent_category_slug': 'pets',
+            'parent_category_slug': None,
         },
 	 {
             'slug': 'household',
             'title': 'Household Items',
-            'parent_category_slug': 'household',
+            'parent_category_slug': None,
         },
     ],
     Product: [
@@ -77,6 +92,32 @@ fixtures = {
             'image_url': 'static/images/bread_roll.jpg',
             'category_slug': 'bread',
         },
+	{
+            'name': 'Apples',
+            'amount': 1.49,
+            'image_url': 'static/images/apples.jpg',
+            'category_slug': 'fruit',
+        },
+	{
+            'name': 'Pears',
+            'amount': 1.49,
+            'image_url': 'static/images/pears.jpg',
+            'category_slug': 'fruit',
+        },
+	{
+            'name': 'Carrots',
+            'amount': 1.49,
+            'image_url': 'static/images/pears.jpg',
+            'category_slug': 'veg',
+        },
+	{
+            'name': 'Brussels',
+            'amount': 1.99,
+            'image_url': 'static/images/brussels.jpg',
+            'category_slug': 'veg',
+        },
+
+
     ]
 }
 
