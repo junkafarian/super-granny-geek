@@ -12,7 +12,7 @@ from fixtures import fixtures
 
 logger = logging.getLogger(__name__)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 engine = create_engine('sqlite:///sqlite.db', echo=True)
 
 
