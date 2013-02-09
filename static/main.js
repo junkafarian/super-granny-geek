@@ -7,7 +7,7 @@ var debug;
 var index = 0;
 var context = 0;
 var products;
-var base_url = '';
+var base_url = 'http://floating-caverns-7726.herokuapp.com';
 
 var item_module = function() {
 
@@ -21,7 +21,7 @@ return {
     init : function(name, column) {
         node = document.getElementById(column_map[column]);
         node.innerHTML = '';  // wipe existing elements
-        jQuery.getJSON('/'+name+'/children/', function(data) {
+        jQuery.getJSON(base_url + '/'+name+'/children/', function(data) {
             items = data;
             for(var i=0; i<data.length; i++) {
                 var item = document.createElement("div");
@@ -62,7 +62,7 @@ return {
 function loadProducts(category) {
     var node = document.getElementById('images');
     node.innerHTML = '';
-    jQuery.getJSON('/'+category+'/products/', function(data) {
+    jQuery.getJSON(base_url + '/'+category+'/products/', function(data) {
         products = data;
         for(var i=0; i<data.length; i++) {
             var item = document.createElement("div");
