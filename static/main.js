@@ -2,6 +2,8 @@ var thefocus = null;
 var lists = [];
 var delta = 0;
 var debug;
+var index = 0;
+var context = 0;
 
 var item_module = function() {
 
@@ -62,19 +64,36 @@ function scroll_handler(event) {
         // W3C
             x = event.detail;
     }
-        delta = x;
+    delta = x;
     debug.innerHTML = "delta" + delta;
-    lists[0].setPosition(delta);
-        preventDefault(event);
+    lists[index].setPosition(delta);
+    return false;
 
 }
 
 jQuery(document).ready(function () {
 
 window.oncontextmenu = function() {
-    //alert("cointex");
+    context = 1;
     return false;
-};
+}
+
+window.onclick = function(e) {
+    if(context == 1) {
+        index --;
+    } else {
+        index ++;
+    }
+    if(index < 0) {
+        index = 0;
+    }
+    if(index >= lists.length) {
+        index = lists.length - 1;
+    }
+    context = 0;
+    debug.innerHTML = index;
+}
+
 
 debug = document.getElementById("debug");
 
