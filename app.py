@@ -19,7 +19,7 @@ engine = create_engine('sqlite:///sqlite.db', echo=True)
 def json_response(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
-        return json.dumps(func(*args, **kwargs))
+        return json.dumps([m.to_dict() for m in func(*args, **kwargs)])
     return wrapper
 
 
@@ -43,13 +43,13 @@ def hello_world():
 @json_response
 def category_children(category_slug):
     session = Session()
-    categories = session.query(Category).filter_by(
-        parent_category_slug=category_slug).all()
-    return [{
-        'slug': category.slug,
-        'title': category.title,
-        'parent': category.parent_category_slug,
-    } for category in categories]
+    categories = session.query(Category)
+    if category_slug == 'root':
+        categories = categories.filter_by(parent_category_slug=None)
+    else:
+        categories = categories.filter_by(parent_category_slug=category_slug)
+
+    return categories.all()
 
 
 @app.route('/<category_slug>/products/')
@@ -58,13 +58,55 @@ def category_products(category_slug):
     session = Session()
     products = session.query(Product).filter_by(
         category_slug=category_slug).all()
-    return [{
-        'id': product.id,
-        'name': product.name,
-        'amount': product.amount,
-        'image_url': product.image_url,
-        'category': product.category_slug,
-    } for product in products]
+    return products
+
+
+@app.route('/purchased/')
+@json_response
+def favourite_categories():
+    session = Session()
+    products = session.query(Product).filter_by(purchased=True)
+
+    favourites = []
+    for product in products:
+        category = product.category
+        while category is not None:
+            favourites.append(category)
+            category = category.parent_category
+
+    return favourites
+
+
+@app.route('/purchase/<int:product_id>/')
+def purchase_product(product_id):
+    session = Session()
+
+    product = session.query(Product).get(product_id)
+    product.purchased = True
+    session.commit()
+
+    return 'OK'
+
+
+@app.route('/reset_purchases/')
+def reset_purchases():
+    session = Session()
+
+    product = session.query(Product).update({'purchased': False})
+    product.purchased = True
+    session.commit()
+
+    return 'OK'
+
+
+@app.route('/reset_db/')
+def reset_db():
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
+
+    load_fixtures()
+
+    return 'OK'
 
 
 if __name__ == '__main__':
