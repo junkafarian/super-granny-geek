@@ -1,7 +1,7 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-from sqlalchemy import Column, String, Text, ForeignKey, Integer, Float
+from sqlalchemy import Column, String, Text, ForeignKey, Integer, Float, Boolean
 from sqlalchemy.orm import relationship
 
 Base = declarative_base()
@@ -19,6 +19,13 @@ class Category(Base):
     parent_category = relationship('Category', remote_side='Category.slug',
         backref='children')
 
+    def to_dict(self):
+        return {
+            'slug': self.slug,
+            'title': self.title,
+            'parent_category': self.parent_category_slug,
+        }
+
 
 class Product(Base):
     __tablename__ = 'products'
@@ -27,9 +34,17 @@ class Product(Base):
     name = Column(Text, nullable=False)
     amount = Column(Float, nullable=False)
     image_url = Column(Text)
+    purchased = Column(Boolean, default=False, nullable=False)
 
     category_slug = Column(String(128), ForeignKey('categories.slug'))
     category = relationship('Category', backref='products')
 
-
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'amount': self.amount,
+            'image_url': self.image_url,
+            'category': self.category_slug,
+        }
 
