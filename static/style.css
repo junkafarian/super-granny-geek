@@ -1,9 +1,14 @@
-body {width: 1280px; margin-left: auto; margin-right: auto; height: 550px; background: #eee;}
-div.shop {width: 100px; margin-left: auto; border: silver solid 1px; padding: 10px; margin-right: auto; height: 50px; margin-top: 10px; margin-bottom: 10px;}
+body {font-family: Arial; width: 1280px; margin-left: auto; margin-right: auto; height: 550px; background: #fff;}
+div.shop {width: 100px; margin-left: auto; border: silver solid 3px; padding: 10px; margin-right: auto; height: 50px; margin-top: 10px; margin-bottom: 10px;}
 div.shops {float: left; background: #fff; width: 150px; height: 500px; padding-top: 50px;}
 div.first {float: left; position: relative; background: #fff; border: black solid 1px; width: 150px; height: 550px;}
 div.second {float: left; background: #fff; border: black solid 1px; width: 150px; height: 550px;}
 div.third {float: left; background: #fff; border: black solid 1px; width: 150px; height: 550px;}
-div.images {float: left; background: #fff; width: 300px; height: 550px;}
-div.basket {float: left; background: #fff; width: 150px; height: 550px;}
-div.item {height: 50px; text-align: center; background: #ddd;}
+div.images {float: left; background: #fff; width: 300px; height: 550px; border: black solid 1px;}
+div.basket {float: left; background: #fff; width: 150px; height: 350px; border: silver solid 3px;}
+div.item {height: 40px; text-align: center; background: #fff; padding-top: 10px;}
+div.top {height: 30px; width: 1280px;}
+div.which {float: left;width: 150px;}
+div.what {float: left;width: 456px;}
+div.yourselection {float: left;width:300px;}
+div.yourbasket {float: left;width:150px;}

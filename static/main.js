@@ -12,6 +12,7 @@ node = null,
 position = 0,
 items = null;
 
+
 return {
 	init : function(name) {
 		node = document.getElementById(name);
@@ -21,30 +22,39 @@ return {
 			  	var item = document.createElement("div");
 			  	item.className = "item";
 			  	item.innerHTML = data[i].title;
-			  	// item.onmouseover = function() {
-			  	// 	this.style.background = "#eee";
-			  	// };
-			  	// item.onmouseout = function() {
-			  	// 	this.style.background = "#ddd";
-			  	// };
 			  	items[i].node = item;
 			  	node.appendChild(item);
 			  }
+		items[0].node.style.background = "#999";
+		items[0].node.style.color = "#fff";		
+
 		});
 	},
 	setPosition : function(dx) {
-		position += dx;
-		items[selected].node.style.background = "#eee";
+		position -= dx;
+		items[selected].node.style.background = "#fff";
+		items[selected].node.style.color = "#000";
 		selected = Math.floor(position/50);
 		if(selected >= items.length) {
 			selected = items.length - 1;
 		} else if (selected < 0) {
-
 			selected = 0;
 		}
 		items[selected].node.style.background = "#999";
+		items[selected].node.style.color = "#fff";
+		
+		//debug.innerHTML = "position=" + position;
+	
 
 	}
+	// selectItem : function(theindex) {
+	// 	// items[selected].node.style.background = "#fff";
+	// 	// items[selected].node.style.color = "#000";
+	// 	selected = theindex;
+	// 	items[selected].node.style.background = "#999";
+	// 	items[selected].node.style.color = "#fff";
+
+	// }
 };
 
 };
@@ -63,7 +73,6 @@ function scroll_handler(event) {
         	x = event.detail;
     }
     	delta = x;
-	debug.innerHTML = "delta" + delta;
 	lists[index].setPosition(delta);
 	return false;
 
@@ -72,15 +81,18 @@ function scroll_handler(event) {
 jQuery(document).ready(function () {
 
 window.oncontextmenu = function() {
+	//alert("context");
 	context = 1;
+	window.onclick();
 	return false;
 }
 
 window.onclick = function(e) {
+	//alert(e.which);
 	if(context == 1) {
-		index --; 
+		index ++; 
 	} else {
-		index ++;
+		index --;
 	}
 	if(index < 0) {
 		index = 0;
@@ -90,18 +102,26 @@ window.onclick = function(e) {
 	}
 	context = 0;
 	debug.innerHTML = index;
-}
 
+}
 
 debug = document.getElementById("debug");
 
 lists.push(item_module());
 lists.push(item_module());
 lists.push(item_module());
+//lists.push(item_module());
+
 
 lists[0].init("first");
 lists[1].init("second");
 lists[2].init("third");
+//lists[3].init("images");
+
+// lists[0].selectItem(0);
+// lists[1].selectItem(0);
+// lists[2].selectItem(0);
+//lists[0].selectItem(0):
 
 
 //document.addEventListener('DOMMouseScroll', scroll_handler, false);
