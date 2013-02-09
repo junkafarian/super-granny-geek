@@ -13,9 +13,19 @@ fixtures = {
             'parent_category_slug': 'fresh-and-bakery',
         },
  	 {
-            'slug': 'Bread',
+            'slug': 'bread',
             'title': 'Bread',
             'parent_category_slug': 'fresh-and-bakery',
+        },
+	 {
+            'slug': 'pets',
+            'title': 'Pets',
+            'parent_category_slug': 'pets',
+        },
+	 {
+            'slug': 'household',
+            'title': 'Household Items',
+            'parent_category_slug': 'household',
         },
     ],
     Product: [
