@@ -16,6 +16,7 @@ node = null,
 position = 0,
 items = null;
 
+
 return {
     init : function(name, column) {
         node = document.getElementById(column_map[column]);
@@ -29,28 +30,25 @@ return {
                 items[i].node = item;
                 node.appendChild(item);
             }
+            items[0].node.style.background = "#999";
+            items[0].node.style.color = "#fff";
         });
-        node.onclick = function(e) {
-            var rightclick;
-            if (!e) var e = window.event;
-            if (e.which) rightclick = (e.which == 3);
-            else if (e.button) rightclick = (e.button == 2);
-            return false;
-        };
+
         columns[column] = this;
 
     },
     setPosition : function(dx) {
         position += dx;
-        items[selected].node.style.background = "#eee";
+        items[selected].node.style.background = "#fff";
+        items[selected].node.style.color = "#000";
         selected = Math.floor(position/50);
         if(selected >= items.length) {
             selected = items.length - 1;
         } else if (selected < 0) {
-
             selected = 0;
         }
         items[selected].node.style.background = "#999";
+        items[selected].node.style.color = "#fff";
 
     },
     getSelectedItem : function() {
@@ -90,7 +88,6 @@ function scroll_handler(event) {
             x = event.detail;
     }
     delta = x;
-    debug.innerHTML = "delta" + delta;
     columns[index].setPosition(delta);
     return false;
 
@@ -100,6 +97,7 @@ jQuery(document).ready(function () {
 
 window.oncontextmenu = function() {
     context = 1;
+    window.onclick();
     return false;
 };
 
@@ -121,7 +119,7 @@ window.onclick = function(e) {
         index = max_columns;
     }
     context = 0;
-    debug.innerHTML = index;
+
     current_col = columns[index];
     item = current_col.getSelectedItem();
 
