@@ -12,6 +12,11 @@ fixtures = {
             'title': 'Milk, Eggs & butter',
             'parent_category_slug': 'fresh-and-bakery',
         },
+ 	 {
+            'slug': 'Bread',
+            'title': 'Bread',
+            'parent_category_slug': 'fresh-and-bakery',
+        },
     ],
     Product: [
         {
@@ -38,5 +43,30 @@ fixtures = {
             'image_url': 'static/images/semi_skimmed_6pint.jpg',
             'category_slug': 'milk-eggs-and-butter',
         },
+ 	{
+            'name': 'Eggs',
+            'amount': 1.59,
+            'image_url': 'static/images/eggs.jpg',
+            'category_slug': 'milk-eggs-and-butter',
+        },
+ 	{
+            'name': 'Butter',
+            'amount': 1.19,
+            'image_url': 'static/images/butter.jpg',
+            'category_slug': 'milk-eggs-and-butter',
+        },
+	{
+            'name': 'Farmhouse Loaf',
+            'amount': 1.19,
+            'image_url': 'static/images/farmhouse_loaf.jpg',
+            'category_slug': 'bread',
+        },
+	{
+            'name': 'Bread Roll',
+            'amount': 0.56,
+            'image_url': 'static/images/bread_roll.jpg',
+            'category_slug': 'bread',
+        },
     ]
 }
+
